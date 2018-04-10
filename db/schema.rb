@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410002913) do
+ActiveRecord::Schema.define(version: 20180410014728) do
 
   create_table "issues", force: :cascade do |t|
     t.string "problem_link"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180410002913) do
     t.integer "users_rated"
     t.integer "opinion_id"
     t.integer "issue_id"
+    t.integer "user_quality"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["issue_id"], name: "index_users_on_issue_id"
     t.index ["opinion_id"], name: "index_users_on_opinion_id"
