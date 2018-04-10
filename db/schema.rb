@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409183309) do
+ActiveRecord::Schema.define(version: 20180410002913) do
+
+  create_table "issues", force: :cascade do |t|
+    t.string "problem_link"
+    t.string "solution_link"
+    t.text "description"
+    t.integer "upvotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "opinion_id"
+    t.index ["opinion_id"], name: "index_issues_on_opinion_id"
+    t.index ["user_id"], name: "index_issues_on_user_id"
+  end
+
+  create_table "opinions", force: :cascade do |t|
+    t.text "solution_approach"
+    t.string "solution_link"
+    t.text "suggestion"
+    t.integer "upvotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "issue_id"
+    t.index ["issue_id"], name: "index_opinions_on_issue_id"
+    t.index ["user_id"], name: "index_opinions_on_user_id"
+  end
 
   create_table "uers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,7 +70,11 @@ ActiveRecord::Schema.define(version: 20180409183309) do
     t.datetime "updated_at", null: false
     t.integer "ratings_sum"
     t.integer "users_rated"
+    t.integer "opinion_id"
+    t.integer "issue_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["issue_id"], name: "index_users_on_issue_id"
+    t.index ["opinion_id"], name: "index_users_on_opinion_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
