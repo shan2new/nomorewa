@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410014728) do
+ActiveRecord::Schema.define(version: 20180412193255) do
 
   create_table "issues", force: :cascade do |t|
     t.string "problem_link"
@@ -38,23 +38,6 @@ ActiveRecord::Schema.define(version: 20180410014728) do
     t.index ["user_id"], name: "index_opinions_on_user_id"
   end
 
-  create_table "uers", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_uers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_uers_on_reset_password_token", unique: true
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180410014728) do
     t.integer "opinion_id"
     t.integer "issue_id"
     t.integer "user_quality"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["issue_id"], name: "index_users_on_issue_id"
     t.index ["opinion_id"], name: "index_users_on_opinion_id"

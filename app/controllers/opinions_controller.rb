@@ -18,6 +18,8 @@ class OpinionsController < ApplicationController
 		@opinion.user_id = current_user.id
 		@opinion.save!
 
+		redirect_to issue_path(@issue)
+
 	end
 
 	def destroy

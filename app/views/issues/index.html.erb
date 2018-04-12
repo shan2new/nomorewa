@@ -1,9 +1,44 @@
+
 <% @issues.each do |issue| %>
-<div class="container issue">
-	<%= issue.user.email %>
-	<%= issue.description %>
-	<%= link_to 'View Issue', issue_path(issue) %>
+<div class="posts-wrapper">
+    <div class="post">
+        <div class="post-head">
+            <div class="thumb-img"></div>
+            <div class="user-name">
+                <%= link_to issue.user.username, '#' %>
+            </div>
+            <div class="time-ago">
+                <%= time_ago_in_words issue.created_at %>
+            </div>
+            <div class="view-issue">
+            	<%= link_to raw('&#128065'), issue_path(issue) %>
+            </div>
+        </div>
+        <div class="issue-link">
+            <%= link_to issue.problem_link, issue.problem_link  %>
+        </div>
+        <div class="post-bottom">
+            <div class="caption">
+                <div class="caption-content">
+                    <div class="user-name">
+                        <%= link_to issue.user.username %>
+                    </div>
+                    <%= issue.description %>
+                        <div class="comments" id="comments_<%= issue.id %>">
+                            <% if issue.opinions.any? %>
+                                    <% issue.opinions.each do |opinion| %>
+									<div class="issue-opinions">
+                                   	    <div class="user-name">
+                        					<%= link_to opinion.user.username %>
+                    					</div> 	
+                                        <%= link_to 'has provided an opinion', issue_opinion_path(issue_id: issue.id, id: opinion.id) %>
+                            		<% end %>
+                            		</div>
+                           <% end %>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <% end %>
-
-<%= link_to 'Add Issue', new_issue_path %>

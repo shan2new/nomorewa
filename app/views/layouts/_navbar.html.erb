@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+  <div class="navbar-container container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-target="#bs-navbar-collapse-1" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand">
+            <span class="title-no">NO</span>
+            <span class="title-more">MORE</span>
+            <span class="title-wa"><s>WA</s></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5"> </div>
+      <div class="col-md-4  ">
+        <div class="" id="bs-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "ASK ISSUE TO EXPERT", new_issue_path %>
+              </li>
+              <li>
+                <%= link_to current_user.username, '#' %>
+              </li>
+              <li>
+                <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "LOGIN", new_user_session_path %>
+              </li>
+              <li>
+                <%= link_to "REGISTER", new_user_registration_path %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
