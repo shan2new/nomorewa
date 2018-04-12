@@ -1,1 +1,7 @@
-<h1> <%= @issue.description %> </h1>
+<div class="container issue">
+	 <p> User:  <%= @issue.user.email %> </p>
+	 <p> Problem Link:  <%= @issue.problem_link %> </p>
+	 <p> Solution Link:  <%= @issue.solution_link %> </p>
+	 <p> Description:  <%= @issue.description %> </p>
+	 <%= link_to 'Add Opinion', new_issue_opinion_path(@issue) %>
+</div>

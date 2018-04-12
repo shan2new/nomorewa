@@ -1,4 +1,9 @@
 <% @issues.each do |issue| %>
+<div class="container issue">
 	<%= issue.user.email %>
 	<%= issue.description %>
+	<%= link_to 'View Issue', issue_path(issue) %>
+</div>
 <% end %>
+
+<%= link_to 'Add Issue', new_issue_path %>

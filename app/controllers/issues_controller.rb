@@ -13,7 +13,11 @@ class IssuesController < ApplicationController
 	end
 
 	def create 
-		@issue.create(issue_params, current_user.id)
+		@issue = Issue.new(issue_params)
+		@issue.user_id = current_user.id
+		@issue.save!
+
+		redirect_to root_path
 	end
 
 	def destroy

@@ -1,5 +1,6 @@
 class OpinionsController < ApplicationController
 	before_action :authenticate_user!
+	before_action :set_issue
 	def index
 		redirect_to root_path
 	end
@@ -9,11 +10,14 @@ class OpinionsController < ApplicationController
 	end
 
 	def new 
-		@opinion = Opinion.new
+		@opinion = @issue.opinions.new
 	end
 
 	def create 
-		Opinion.create(opinion_params, user_id: current_user.id)
+		@opinion = @issue.opinions.create(opinion_params)
+		@opinion.user_id = current_user.id
+		@opinion.save!
+
 	end
 
 	def destroy
@@ -23,5 +27,9 @@ class OpinionsController < ApplicationController
 	
 	def opinion_params
 		params.require(:opinion).permit(:solution_approach, :solution_link, :suggestion, :upvotes)
+	end
+
+	def set_issue
+		@issue = Issue.find(params[:issue_id])
 	end
 end

@@ -1,0 +1,10 @@
+<div class="container">
+	<div class="row">
+		<%= simple_form_for [@issue,@opinion],  html: { class: 'form-horizontal' } do |f| %>
+		  <%= f.input :solution_approach %>
+		  <%= f.input :solution_link %>
+		  <%= f.input :suggestion %>
+		  <%= f.button :submit %>
+		 <% end %>
+	</div>
+</div>
