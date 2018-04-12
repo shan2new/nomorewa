@@ -1,7 +1,24 @@
-<div class="container issue">
-	 <p> User:  <%= @issue.user.email %> </p>
-	 <p> Problem Link:  <%= @issue.problem_link %> </p>
-	 <p> Solution Link:  <%= @issue.solution_link %> </p>
-	 <p> Description:  <%= @issue.description %> </p>
-	 <%= link_to 'Add Opinion', new_issue_opinion_path(@issue) %>
+<div class="posts-wrapper opinions-wrapper">
+    <div class="post">
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-1"></div>
+                <h1 class="heading col-md-9">Problem Name: <%= link_to @issue.problem_link, @issue.problem_link %> </h1>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+            	<div class="col-md-1"></div>
+            	<div class="col-md-9 bottom-line"><h3 class="opinion-title">Solution Link:</h3> <%= @issue.solution_link %></div>
+            </div>
+            <div class="row ">
+               <div class="col-md-1"></div>
+            	<div class="col-md-9 bottom-line"><h3 class="opinion-title">Description:</h3> <%= @issue.description %></div>
+            </div>
+            <div class="row ">
+               <div class="col-md-5"></div>
+            	<div class="col-md-5"><%= link_to 'Add Opinion', new_issue_opinion_path(@issue),  class: "btn btn-danger button-margin" %></div>
+            </div>
+        </div>
+	
+    </div>
 </div>

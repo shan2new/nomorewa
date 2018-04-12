@@ -114,7 +114,7 @@ body {
     color: #125688;
     font-size: 15px;
   }
-  .user-name, .caption-content {
+  .user-name, {
     display: inline;
   }
   #comment {
@@ -213,33 +213,9 @@ body {
 }
 
 
-#paginator {
-  color: #4090DB;
-  height: 120px;
-  width: 120px;
-  margin: 60px auto 40px;
-  position: relative;
-  display: table;
-  border: 2px solid #4090DB;
-  border-radius: 50%;
-  :hover {
-    border: 1px solid #2D6DA8;
-    border-radius: 50%;
-  }
-}
-
-#load_more {
-  display: table-cell;
-  font-size: 12px;
-  padding: 0px 9px;
-  vertical-align: middle;
-  text-decoration: none;
-  a :hover {
-    color: #2D6DA8;
-  }
-}
 
 .comments {
+  margin-top: 10px;
   .paginator {
     margin: 0.5em;
     .more-comments {
@@ -338,8 +314,8 @@ body {
 }
 
 
-.issue-opinions {
-  border: 1px solid blue;
+.bottom-small-line {
+  border-bottom: 1px solid blue;
 }
 
 .view-issue {
@@ -351,4 +327,30 @@ body {
 
 .issue-link {
   margin-left: 22px;
+}
+
+.new-posts {
+  margin-top: 30px;
+}
+
+.heading {
+  border-bottom: 1px solid;
+  font: 700 normal 30px Helvetica,sans-serif;
+}
+
+.opinions-wrapper {
+max-width: 80% !important;
+}
+
+.opinion-title {
+  font: 700 normal 18px Helvetica,sans-serif !important;
+}
+
+.bottom-line {
+  border-bottom: 1px solid;
+}
+
+.button-margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

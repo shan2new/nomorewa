@@ -1,1 +1,19 @@
-<h1><%= @opinion.solution_approach %> </h1>
+<div class="posts-wrapper opinions-wrapper">
+    <div class="post">
+        <div class="container">
+            <div class="row">
+            	<div class="col-md-1"></div>
+                <h1 class="heading col-md-9">Problem Name: <%= link_to @opinion.issue.problem_link, @opinion.issue.problem_link %> </h1>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+            	<div class="col-md-1"></div>
+            	<div class="col-md-9 bottom-line"><h3 class="opinion-title">Solution Approach:</h3> <%= @opinion.solution_approach %></div>
+            </div>
+            <div class="row ">
+               <div class="col-md-1"></div>
+            	<div class="col-md-9 bottom-line"><h3 class="opinion-title">Suggestions for Practicing:</h3> <%= @opinion.suggestion %></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,7 +19,7 @@
         </div>
         <div class="post-bottom">
             <div class="caption">
-                <div class="caption-content">
+                <div class="caption-content bottom-small-line">
                     <div class="user-name">
                         <%= link_to issue.user.username %>
                     </div>
@@ -27,7 +27,7 @@
                         <div class="comments" id="comments_<%= issue.id %>">
                             <% if issue.opinions.any? %>
                                     <% issue.opinions.each do |opinion| %>
-									<div class="issue-opinions">
+									<div class="bottom-small-line">
                                    	    <div class="user-name">
                         					<%= link_to opinion.user.username %>
                     					</div> 	
