@@ -15,3 +15,7 @@ Step 1: bundle install
 Step 2: rail s
 
 Open the browser and open the following link: http://localhost:3000/
+
+# Upcoming
+
+UI Improvements
